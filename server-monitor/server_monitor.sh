@@ -46,6 +46,25 @@ fi
 
 DISK_USAGE=$(df -h | awk 'NR==3 {print $5}'| tr -d "%")
 
+log_message "Disk usage:$DISK_USAGE"
+
+if [ $DISK_USAGE -gt $DISK_TRESHOLD ];then
+
+log_message "DISK Usage id High!!!!!!!"
+fi
+
+#Check the ssh and cron service is running
+
+for service in {ssh,cron}; do
+if systemctl is-active --quiet "$service"; then
+    log_message "$service is running"
+else 
+    log_message "$service is not running"
+fi
+done
+
+log_message "Health check compleated"
+
 
 
 
