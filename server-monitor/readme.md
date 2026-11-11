@@ -67,7 +67,7 @@ The monitoring logs are stored separately:
 ```text
 /var/log/server-monitor/
 │
-└── health.log
+└── date.log
 ```
 
 ---
@@ -78,7 +78,7 @@ The script uses the following configuration variables:
 
 ```bash
 LOG_DIR="/var/log/server-monitor"
-LOG_FILE="$LOG_DIR/health.log"
+LOG_FILE="$LOG_DIR/date.log"
 
 CPU_THRESHOLD=80
 MEMORY_THRESHOLD=80
